@@ -16,9 +16,9 @@ jobs:
     - name: pip install
       run: pip install -r requirements.txt
     - name: download dataset
-      run: wget -O data/heart_disease.csv ${{github.event.client_payload.dataseturl}}
-    - name: cat dataset
-      run: cat data/heart_disease.csv
+      run: wget -O data/insurance.csv ${{github.event.client_payload.dataseturl}}
+    #- name: cat dataset
+    #  run: cat data/insurance.csv
     - name: train model
       run: python model/train.py
     - name: docker build
