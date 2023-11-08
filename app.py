@@ -2,10 +2,23 @@ from pydantic import BaseModel
 import numpy as np
 from joblib import load
 import pathlib
+from fastapi.middleware.cors import CORSMiddleware
+
 
 from fastapi import FastAPI
 
+origins = ['*']
+
+
 app = FastAPI(title = 'Health Insurance Cost Prediction')
+
+app.add_middleware(
+   CORSMiddleware,
+   allow_origins=origins,
+   allow_credentials=True,
+   allow_methods=['*'],
+   allow_headers=['*']
+)
 
 model = load(pathlib.Path('model/insurance-v1.joblib'))
 
