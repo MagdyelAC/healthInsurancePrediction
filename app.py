@@ -25,7 +25,7 @@ model = load(pathlib.Path('model/insurance-v1.joblib'))
 class InputData(BaseModel):
     age :int= 40
     sex :int= 1
-    bmi :int= 40.30
+    bmi : float= 40.30
     children :int= 4
     smoker :int= 1
     region :int= 2
